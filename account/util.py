@@ -61,5 +61,15 @@ def refresh_spotify_token(session_id):
     expires_in = response.get('expires_in')
     refresh_token = response.get('refresh_token')
 
-    update_or_create_user_tokens(
-        session_id, access_token, token_type, expires_in, refresh_token)
+    update_or_create_user_tokens(session_id, access_token, token_type, expires_in, refresh_token)
+
+
+def spotify_api_request(session_id,endpoint):
+    token = get_user_tokens(session_id)
+    headers = {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + token.access_token
+        }
+    response = get(BASE_URL + endpoint, headers=headers).json()
+    return response
