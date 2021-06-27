@@ -12,21 +12,27 @@
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="logo">
-            <a href="#">
-                <img src="#" alt="1">
-            </a>
-        </div>
-        <ul class="nav-iteams">
+    <nav>
+        <button class="logo">
+            <img src="#" alt="logo">
+        </button>
+        <ul class="options">
             <li><a href="#">Home</a></li>
-            <li><a href="#">Play Songs</a></li>
+            <li><a href="#">Play </a></li>
         </ul>
+        <form class="search" action="#">
+            <input type="text" placeholder=" Search song" name="search">
+            <button>
+                <i class="search" style="font-size: 18px;"></i>
+            </button>
+        </form>
     </nav>
-    <p>
-        {{name}}
-    </p>
-
+    <div class="container">
+        <div class="p2">
+            <img src="{% static 'images/user.png' %}" alt="user">
+            <p>Name :{{name}}</p>
+        </div>
+    </div>
 </body>
 
 </html>
